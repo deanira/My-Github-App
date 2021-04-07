@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyGithubApp</string>
+    <string name="name">Nama user</string>
+    <string name="username">@Username</string>
+    <string name="company">Perusahaan</string>
+    <string name="followers">Pengikut</string>
+    <string name="following">Mengikuti</string>
+    <string name="total_repo">Total repository: 10</string>
+    <string name="find_people">Temukan Pengguna</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tab_text_followers">Pengikut</string>
+    <string name="tab_text_following">Mengikuti</string>
+    <string name="cari_pengguna">Cari Pengguna</string>
+    <string name="pengguna_teratas">Pengguna Teratas</string>
+    <string name="jelajahi_pengguna_lainnya">Temukan pengguna lainnya</string>
+    <string name="search">Cari</string>
+    <string name="search_hint">Cari username</string>
+    <string name="change_language_settings">Ubah Pengaturan Bahasa</string>
+    <string name="search_desc">Ketuk ikon cari untuk memulai pencarian</string>
+    <string name="github_mark">Mark Github</string>
+    <string name="github_logo">Logo Github</string>
+</resources>
