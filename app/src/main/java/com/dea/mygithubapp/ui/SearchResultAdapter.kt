@@ -12,7 +12,7 @@ import com.dea.mygithubapp.databinding.ItemSearchResultBinding
 class SearchResultAdapter :
     RecyclerView.Adapter<SearchResultAdapter.ListViewHolder>() {
 
-    private val mData = ArrayList<UsersResponseItem>()
+    var mData = ArrayList<UsersResponseItem>()
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setData(items: ArrayList<UsersResponseItem>) {
@@ -21,19 +21,14 @@ class SearchResultAdapter :
         notifyDataSetChanged()
     }
 
-    fun clearData() {
-        mData.clear()
-    }
-
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemSearchResultBinding.bind(itemView)
         fun bind(items: UsersResponseItem) {
-            with(itemView) {
-                binding.tvUsername.text = items.login
-                Glide.with(itemView.context)
-                    .load(items.avatarUrl)
-                    .into(binding.civProfilePicture)
-            }
+            binding.tvUsername.text = items.login
+            Glide.with(itemView.context)
+                .load(items.avatarUrl)
+                .placeholder(R.color.blue_light)
+                .into(binding.civProfilePicture)
         }
     }
 

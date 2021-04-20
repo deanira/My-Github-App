@@ -12,16 +12,17 @@ import com.bumptech.glide.Glide
 import com.dea.mygithubapp.R
 import com.dea.mygithubapp.data.response.UsersResponseItem
 import com.dea.mygithubapp.databinding.ActivityDetailUserBinding
-import com.facebook.shimmer.ShimmerFrameLayout
+import com.dea.mygithubapp.ui.favorite.FavoriteUsersViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-
 
 @AndroidEntryPoint
 class DetailUserActivity : AppCompatActivity() {
 
     private val detailUserViewModel: DetailUserViewModel by viewModels()
+    private val favoriteUsersViewModel: FavoriteUsersViewModel by viewModels()
     private lateinit var binding: ActivityDetailUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,11 +53,47 @@ class DetailUserActivity : AppCompatActivity() {
                 tvLocation.text = it?.location
                 Glide.with(this@DetailUserActivity)
                     .load(it?.avatarUrl)
+                    .placeholder(R.color.blue_light)
                     .into(binding.circleImageView)
                 binding.tvCompany.visibility = View.VISIBLE
                 binding.tvLocation.visibility = View.VISIBLE
             }
             showLoading(false)
+        })
+
+        favoriteUsersViewModel.checkUser(user.id)
+        favoriteUsersViewModel.checkUser.observe(this, { dataUser ->
+            with(binding) {
+                if (dataUser == null) {
+                    fabFavorite.setImageResource(R.drawable.ic_favorite_border)
+                    favoriteUsersViewModel.checkUser(user.id)
+                    favoriteUsersViewModel.checkUser.observe(this@DetailUserActivity, {
+                        fabFavorite.setOnClickListener {
+                            fabFavorite.setImageResource(R.drawable.ic_favorite_filled)
+                            favoriteUsersViewModel.addToFavorite(user)
+                            Snackbar.make(
+                                binding.root,
+                                getString(R.string.saved_to_favorite),
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                        }
+                    })
+                } else {
+                    fabFavorite.setImageResource(R.drawable.ic_favorite_filled)
+                    favoriteUsersViewModel.checkUser(user.id)
+                    favoriteUsersViewModel.checkUser.observe(this@DetailUserActivity, {
+                        fabFavorite.setOnClickListener {
+                            fabFavorite.setImageResource(R.drawable.ic_favorite_border)
+                            favoriteUsersViewModel.removeFromFavorite(dataUser)
+                            Snackbar.make(
+                                binding.root,
+                                getString(R.string.removed_from_favorite),
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                        }
+                    })
+                }
+            }
         })
     }
 
@@ -111,7 +148,6 @@ class DetailUserActivity : AppCompatActivity() {
                     }
                 }
             }
-
         })
     }
 
@@ -138,5 +174,4 @@ class DetailUserActivity : AppCompatActivity() {
             R.string.tab_text_following
         )
     }
-
 }

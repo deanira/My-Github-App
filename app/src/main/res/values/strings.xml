@@ -18,7 +18,25 @@
     <string name="search">Find</string>
     <string name="search_hint">Find Username</string>
     <string name="change_language_settings">Change Language Settings</string>
-    <string name="search_desc">Klik the search icon to start the search</string>
+    <string name="search_desc">Click on the search icon to start the search</string>
     <string name="github_mark">Github Mark</string>
     <string name="github_logo">Github Logo</string>
+    <string name="settings">Settings</string>
+    <string name="key_reminder">reminder</string>
+    <string name="favorite">Favorite</string>
+    <string name="key_language">language</string>
+    <string name="warning_favorite">Oops! Looks like you haven\'t got any favorite users yet</string>
+    <string name="removed_from_favorite">User Removed From Favorite</string>
+    <string name="saved_to_favorite">User Saved To Favorite</string>
+    <string name="username_not_found">Username not found</string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Indonesia</item>
+    </string-array>
+
+    <string-array name="languages_code">
+        <item>English</item>
+        <item>Indonesia</item>
+    </string-array>
 </resources>

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:shimmer="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_blue"
@@ -197,5 +198,18 @@
             android:layout_below="@id/tabs"
             android:background="@color/dark_blue"
             app:layout_constraintTop_toBottomOf="@id/tabs" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/materialCardView"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/blue_light"
+            android:contentDescription="@string/favorite"
+            android:src="@drawable/ic_favorite_border"
+            tools:ignore="RelativeOverlap" />
     </RelativeLayout>
 </ScrollView>

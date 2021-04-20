@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        buildConfigField("String", "GITHUB_TOKEN", '"token 32b6d72410d94440b67fcb48915002267c3a2b2a"')
+        buildConfigField("String", "GITHUB_TOKEN", '"token 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"')
         applicationId "com.dea.mygithubapp"
         minSdkVersion 21
         targetSdkVersion 30
@@ -59,7 +59,7 @@ dependencies {
     //material
     implementation 'com.google.android.material:material:1.3.0'
     //recyclerview
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
     //recyclerview: cardview
     implementation 'androidx.cardview:cardview:1.0.0'
     //circleimage
@@ -94,4 +94,13 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     //shimmer
     implementation 'com.facebook.shimmer:shimmer:0.1.0'
+    //preferences
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+    //room
+    def roomVersion = '2.2.6'
+    implementation "androidx.room:room-runtime:$roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$roomVersion"
+    androidTestImplementation "androidx.room:room-testing:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
 }

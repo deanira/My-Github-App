@@ -2,8 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_change_settings"
-        android:title="@string/change_language_settings"
+        android:id="@+id/action_fav"
+        android:title="Favorite Users"
+        android:icon="@drawable/ic_favorite_filled"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/settings"
         android:icon="@drawable/ic_settings"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 </menu>

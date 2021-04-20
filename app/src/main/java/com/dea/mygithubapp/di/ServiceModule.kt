@@ -13,5 +13,6 @@ import javax.inject.Singleton
 object ServiceModule {
     @Singleton
     @Provides
-    fun provideGithubUserService(retrofit: Retrofit) = retrofit.create(GithubUserApiService::class.java)
+    fun provideGithubUserService(retrofit: Retrofit) =
+        retrofit.create(GithubUserApiService::class.java)
 }

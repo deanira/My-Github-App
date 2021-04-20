@@ -4,7 +4,6 @@ package com.dea.mygithubapp.data.response
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
-import kotlinx.parcelize.RawValue
 
 @Parcelize
 data class UserResponse(
@@ -59,4 +58,4 @@ data class UserResponse(
     @SerializedName("updated_at")
     val updatedAt: String?,
     val url: String?
-): Parcelable
+) : Parcelable

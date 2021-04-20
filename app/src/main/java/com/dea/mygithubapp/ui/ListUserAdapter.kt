@@ -7,7 +7,6 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.dea.mygithubapp.R
 import com.dea.mygithubapp.data.response.UsersResponseItem
 import com.dea.mygithubapp.databinding.ItemRowUserBinding
@@ -23,9 +22,16 @@ class ListUserAdapter :
         notifyDataSetChanged()
     }
 
+    fun setData(items: List<UsersResponseItem>) {
+        mData.clear()
+        mData.addAll(items)
+        notifyDataSetChanged()
+    }
+
     fun ImageView.loadImage(url: String?) {
         Glide.with(this.context)
             .load(url)
+            .placeholder(R.color.blue_light)
             .centerCrop()
             .into(this)
     }
@@ -51,7 +57,8 @@ class ListUserAdapter :
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         holder.bind(mData[position])
-        holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rv_animation)
+        holder.itemView.animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rv_animation)
 
         holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(mData[position]) }
     }

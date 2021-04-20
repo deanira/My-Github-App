@@ -2,11 +2,19 @@ package com.dea.mygithubapp.data.response
 
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
+@Entity(
+    tableName = "favorite_users"
+)
+
 @Parcelize
 data class UsersResponseItem(
+    @PrimaryKey(autoGenerate = true)
+    val idFav: Int? = null,
     @SerializedName("avatar_url")
     val avatarUrl: String,
     @SerializedName("events_url")
@@ -32,11 +40,11 @@ data class UsersResponseItem(
     @SerializedName("repos_url")
     val reposUrl: String,
     @SerializedName("site_admin")
-    val siteAdmin: Boolean,
+    val siteAdmin: String,
     @SerializedName("starred_url")
     val starredUrl: String,
     @SerializedName("subscriptions_url")
     val subscriptionsUrl: String,
     val type: String,
     val url: String
-): Parcelable
+) : Parcelable

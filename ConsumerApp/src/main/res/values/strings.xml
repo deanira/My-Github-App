@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ConsumerApp</string>
+    <string name="name">Name</string>
+    <string name="username">@Username</string>
+    <string name="company">Company</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="total_repo">Total repository: 10</string>
+    <string name="find_people">Find User</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tab_text_followers">Followers</string>
+    <string name="tab_text_following">Following</string>
+    <string name="cari_pengguna">Find Username</string>
+    <string name="pengguna_teratas">Top Users</string>
+    <string name="jelajahi_pengguna_lainnya">Explore more users</string>
+    <string name="search">Find</string>
+    <string name="search_hint">Find Username</string>
+    <string name="change_language_settings">Change Language Settings</string>
+    <string name="search_desc">Click on the search icon to start the search</string>
+    <string name="github_mark">Github Mark</string>
+    <string name="github_logo">Github Logo</string>
+    <string name="settings">Settings</string>
+    <string name="key_reminder">reminder</string>
+    <string name="favorite">Favorite</string>
+</resources>

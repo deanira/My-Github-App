@@ -22,4 +22,12 @@
     <string name="search_desc">Ketuk ikon cari untuk memulai pencarian</string>
     <string name="github_mark">Mark Github</string>
     <string name="github_logo">Logo Github</string>
+    <string name="settings">Pengaturan</string>
+    <string name="key_reminder">reminder</string>
+    <string name="favorite">Favorite</string>
+    <string name="key_language">language</string>
+    <string name="warning_favorite">Oops! Sepertinya kamu belum mempunyai user favorit</string>
+    <string name="removed_from_favorite">User dihapus dari daftar favorit</string>
+    <string name="saved_to_favorite">User disimpan dalam daftar favorit</string>
+    <string name="username_not_found">Username tidak ditemukan</string>
 </resources>

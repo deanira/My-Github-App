@@ -3,13 +3,11 @@ package com.dea.mygithubapp.ui.search
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,6 +38,19 @@ class SearchActivity : AppCompatActivity() {
         adapter = SearchResultAdapter()
         adapter.notifyDataSetChanged()
         binding.rvList.setHasFixedSize(true)
+
+        if (savedInstanceState != null) {
+            //binding.searchDescription.visibility = View.GONE
+            val listUser = savedInstanceState.getParcelableArrayList<UsersResponseItem>(EXTRA_STATE)
+            if (listUser != null) {
+                adapter.mData = listUser
+            }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelableArrayList(EXTRA_STATE, adapter.mData)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -68,6 +79,7 @@ class SearchActivity : AppCompatActivity() {
                 return true
             }
         })
+
         return true
     }
 
@@ -88,8 +100,14 @@ class SearchActivity : AppCompatActivity() {
 
         searchActivityViewModel.onSearchuser("${Constant.BASE_URL}search/users?q=$newText")
         searchActivityViewModel.listUserSearchResult.observe(this) {
-            if (it != null) {
+            if (it.isNotEmpty()) {
+                binding.tvNotFound.visibility = View.INVISIBLE
+                binding.rvList.visibility = View.VISIBLE
                 adapter.setData(it)
+                showLoading(false)
+            } else {
+                binding.rvList.visibility = View.INVISIBLE
+                binding.tvNotFound.visibility = View.VISIBLE
                 showLoading(false)
             }
         }
@@ -120,5 +138,9 @@ class SearchActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()
+    }
+
+    companion object {
+        private const val EXTRA_STATE = "extra_state"
     }
 }
